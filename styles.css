@@ -4,7 +4,8 @@
     --dark-bg: #0a0e27;
     --card-bg: #1a1f3a;
     --text-light: #e2e8f0;
-    --text-muted: #94a3b8;
+    --text-muted: #cbd5e1;
+    --text-description: #e2e8f0;
     --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     --gradient-2: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
     --gradient-3: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
@@ -147,6 +148,17 @@ html {
     border-radius: 50px;
     font-size: 0.9rem;
     animation: fadeInDown 1s ease;
+    color: var(--text-light);
+}
+
+.hero-subtitle {
+    color: var(--text-light) !important;
+    font-weight: 400;
+}
+
+.hero-location {
+    color: var(--text-light) !important;
+    font-weight: 400;
 }
 
 .animate-text {
@@ -279,6 +291,7 @@ html {
     font-weight: 700;
     position: relative;
     display: inline-block;
+    color: var(--text-light);
 }
 
 .section-title::after {
@@ -293,8 +306,13 @@ html {
     border-radius: 2px;
 }
 
-/* About Section */
-.about-card {
+.section-subtitle {
+    color: var(--text-muted) !important;
+    font-weight: 400;
+}
+
+/* Education Section */
+.education-card {
     background: var(--card-bg);
     padding: 2rem;
     border-radius: 20px;
@@ -302,13 +320,13 @@ html {
     transition: all 0.3s ease;
 }
 
-.about-card:hover {
+.education-card:hover {
     transform: translateY(-10px);
     box-shadow: var(--shadow-lg);
     border-color: rgba(0, 212, 255, 0.3);
 }
 
-.about-icon {
+.education-icon {
     width: 70px;
     height: 70px;
     background: var(--gradient-2);
@@ -320,21 +338,62 @@ html {
     margin-bottom: 1.5rem;
 }
 
-.about-card h3 {
-    font-size: 1.5rem;
+.education-card h3 {
+    font-size: 1.3rem;
     font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--text-light);
+}
+
+.education-card h4 {
+    font-size: 1rem;
     margin-bottom: 1rem;
 }
 
-.achievement-stats {
-    display: flex;
-    gap: 2rem;
-    margin-top: 1.5rem;
+.card-date {
+    color: var(--text-muted) !important;
+    margin-bottom: 1rem;
 }
 
-.stat-item h4 {
-    font-size: 2rem;
-    font-weight: 700;
+.card-description {
+    color: var(--text-description) !important;
+    line-height: 1.6;
+}
+
+/* Certifications */
+.certifications-card {
+    background: var(--card-bg);
+    padding: 2.5rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.certifications-card h3 {
+    color: var(--text-light);
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.cert-badge {
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    padding: 1rem 1.5rem;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    transition: all 0.3s ease;
+}
+
+.cert-badge:hover {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.4);
+    transform: translateX(5px);
+}
+
+.cert-badge span {
+    color: var(--text-light);
+    font-weight: 500;
 }
 
 /* Skills Section */
@@ -370,6 +429,7 @@ html {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1.5rem;
+    color: var(--text-light);
 }
 
 .skill-list {
@@ -390,6 +450,7 @@ html {
     font-size: 0.9rem;
     font-weight: 500;
     transition: all 0.3s ease;
+    color: var(--text-light);
 }
 
 .skill-badge:hover {
@@ -469,6 +530,7 @@ html {
     font-size: 1.3rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--text-light);
 }
 
 .project-content p {
@@ -489,6 +551,7 @@ html {
     border-radius: 15px;
     font-size: 0.85rem;
     font-weight: 500;
+    color: var(--text-light);
 }
 
 .btn-outline-primary {
@@ -508,6 +571,12 @@ html {
 }
 
 /* Contact Section */
+.contact-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
 .contact-card {
     background: var(--card-bg);
     padding: 2.5rem;
@@ -515,6 +584,7 @@ html {
     border: 1px solid rgba(255, 255, 255, 0.05);
     transition: all 0.3s ease;
     height: 100%;
+    text-align: center;
 }
 
 .contact-card:hover {
@@ -539,11 +609,38 @@ html {
     font-size: 1.5rem;
     font-weight: 600;
     margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.contact-value {
+    display: block;
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.95rem;
+    margin-top: 1rem;
+}
+
+/* CTA Box */
+.cta-box {
+    background: var(--card-bg);
+    padding: 3rem;
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.cta-box h3 {
+    color: var(--text-light);
+    font-size: 2rem;
+    font-weight: 600;
 }
 
 /* Footer */
 footer {
     background: var(--card-bg);
+}
+
+.footer-text {
+    color: var(--text-muted);
 }
 
 .social-links-footer a {
@@ -585,11 +682,6 @@ footer {
 
     .hero-buttons .btn {
         width: 100%;
-    }
-
-    .achievement-stats {
-        flex-direction: column;
-        gap: 1rem;
     }
 
     .project-links {

@@ -72,7 +72,7 @@ const observer = new IntersectionObserver(function(entries) {
 // Add fade-in class to elements
 document.addEventListener('DOMContentLoaded', function() {
     const fadeElements = document.querySelectorAll(
-        '.skill-card, .project-card, .about-card, .contact-card'
+        '.skill-card, .project-card, .education-card, .contact-card, .certifications-card'
     );
     
     fadeElements.forEach(element => {
@@ -134,86 +134,6 @@ document.querySelectorAll('.skill-badge').forEach(badge => {
     });
 });
 
-// Contact Form Handler (if you add a form later)
-const contactForm = document.querySelector('#contactForm');
-if (contactForm) {
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // Show success message
-        alert('Mensagem enviada com sucesso! Em breve entrarei em contato.');
-        
-        // Reset form
-        contactForm.reset();
-        
-        // Here you would typically send the data to a server
-        console.log('Form data:', data);
-    });
-}
-
-// GitHub Stats Counter Animation
-function animateCounter(element, target, duration = 2000) {
-    const start = 0;
-    const increment = target / (duration / 16);
-    let current = start;
-    
-    const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-            element.textContent = target + '+';
-            clearInterval(timer);
-        } else {
-            element.textContent = Math.floor(current) + '+';
-        }
-    }, 16);
-}
-
-// Animate stats when visible
-const statsObserver = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            const statItems = entry.target.querySelectorAll('.stat-item h4');
-            statItems.forEach(item => {
-                const target = parseInt(item.textContent);
-                if (!isNaN(target)) {
-                    animateCounter(item, target);
-                }
-            });
-            statsObserver.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-
-const achievementStats = document.querySelector('.achievement-stats');
-if (achievementStats) {
-    statsObserver.observe(achievementStats.parentElement);
-}
-
-// Parallax Effect for Hero Section
-window.addEventListener('scroll', function() {
-    const scrolled = window.pageYOffset;
-    const heroContent = document.querySelector('.hero-content');
-    const heroOverlay = document.querySelector('.hero-overlay');
-    
-    if (heroContent && scrolled < window.innerHeight) {
-        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
-        heroContent.style.opacity = 1 - (scrolled / 500);
-    }
-    
-    if (heroOverlay && scrolled < window.innerHeight) {
-        heroOverlay.style.transform = `translateY(${scrolled * 0.3}px)`;
-    }
-});
-
-// Add loading animation
-window.addEventListener('load', function() {
-    document.body.classList.add('loaded');
-});
-
 // Prevent default behavior for disabled links
 document.querySelectorAll('a[href="#"]').forEach(link => {
     link.addEventListener('click', function(e) {
@@ -270,6 +190,27 @@ function debounce(func, wait = 10, immediate = true) {
 // Apply debounce to scroll events
 const debouncedScroll = debounce(updateActiveLink);
 window.addEventListener('scroll', debouncedScroll);
+
+// Parallax Effect for Hero Section
+window.addEventListener('scroll', function() {
+    const scrolled = window.pageYOffset;
+    const heroContent = document.querySelector('.hero-content');
+    const heroOverlay = document.querySelector('.hero-overlay');
+    
+    if (heroContent && scrolled < window.innerHeight) {
+        heroContent.style.transform = `translateY(${scrolled * 0.5}px)`;
+        heroContent.style.opacity = 1 - (scrolled / 500);
+    }
+    
+    if (heroOverlay && scrolled < window.innerHeight) {
+        heroOverlay.style.transform = `translateY(${scrolled * 0.3}px)`;
+    }
+});
+
+// Add loading animation
+window.addEventListener('load', function() {
+    document.body.classList.add('loaded');
+});
 
 // Console message for developers
 console.log('%c🚀 Portfólio desenvolvido por Kleiton Ferreira', 'color: #00d4ff; font-size: 16px; font-weight: bold;');
