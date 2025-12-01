@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Cover - Kleiton Ferreira</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .linkedin-cover {
+            width: 1584px;
+            height: 396px;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Animated background pattern */
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* Content container */
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 80px;
+        }
+
+        /* Left side - Text content */
+        .text-content {
+            flex: 1;
+            color: white;
+        }
+
+        .name {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 400;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .skill-badge {
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        .call-to-action {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            color: #e2e8f0;
+            margin-top: 25px;
+        }
+
+        .arrow {
+            font-size: 28px;
+            color: #00d4ff;
+        }
+
+        /* Right side - QR Code */
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .qr-container {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border: 3px solid #00d4ff;
+        }
+
+        .qr-placeholder {
+            width: 180px;
+            height: 180px;
+            background: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+            color: #666;
+            text-align: center;
+        }
+
+        .qr-text {
+            text-align: center;
+            color: #0a0e27;
+        }
+
+        .qr-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .qr-subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* Decorative elements */
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .element-1 {
+            width: 300px;
+            height: 300px;
+            background: #00d4ff;
+            top: -150px;
+            left: -100px;
+        }
+
+        .element-2 {
+            width: 200px;
+            height: 200px;
+            background: #6366f1;
+            bottom: -100px;
+            right: 300px;
+        }
+
+        .element-3 {
+            width: 150px;
+            height: 150px;
+            background: #00d4ff;
+            top: 50px;
+            right: 600px;
+        }
+
+        /* Instructions */
+        .instructions {
+            margin-top: 30px;
+            padding: 20px;
+            background: white;
+            border-radius: 10px;
+            max-width: 1584px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions h2 {
+            color: #0a0e27;
+            margin-bottom: 15px;
+        }
+
+        .instructions ol {
+            color: #334155;
+            line-height: 1.8;
+        }
+
+        .instructions code {
+            background: #f1f5f9;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-family: monospace;
+            color: #0369a1;
+        }
+
+        .note {
+            background: #dbeafe;
+            border-left: 4px solid #00d4ff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 5px;
+        }
+
+        .note strong {
+            color: #0369a1;
+        }
+    </style>
+</head>
+<body>
+    <div style="max-width: 1584px;">
+        <div class="linkedin-cover" id="cover">
+            <!-- Background elements -->
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+            <div class="background-pattern"></div>
+            <div class="grid-overlay"></div>
+
+            <!-- Main content -->
+            <div class="content">
+                <!-- Left side - Text -->
+                <div class="text-content">
+                    <h1 class="name">Kleiton Ferreira</h1>
+                    <p class="title">Full Stack Developer</p>
+                    
+                    <div class="skills">
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">Laravel</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">TypeScript</span>
+                    </div>
+
+                    <div class="call-to-action">
+                        <span class="arrow">→</span>
+                        <span>Escaneie o QR Code para ver meu portfólio completo</span>
+                    </div>
+                </div>
+
+                <!-- Right side - QR Code -->
+                <div class="qr-section">
+                    <div class="qr-container">
+                        <div class="qr-placeholder" id="qrcode">
+                            <!-- QR Code será inserido aqui -->
+                            Cole seu QR Code aqui
+                        </div>
+                    </div>
+                    <div class="qr-text">
+                        <div class="qr-title">Meu Portfólio</div>
+                        <div class="qr-subtitle">github.io/portfolio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h2>📋 Como usar este template:</h2>
+            <ol>
+                <li>Publique seu portfólio no GitHub Pages (veja arquivo DEPLOY.md)</li>
+                <li>Gere um QR Code da sua URL em: <code>https://br.qr-code-generator.com/</code> ou <code>https://www.qrcode-monkey.com/</code></li>
+                <li>Baixe o QR Code como PNG (tamanho 180x180px ou maior)</li>
+                <li>Substitua o texto "Cole seu QR Code aqui" por: <code>&lt;img src="seu-qrcode.png" style="width: 180px; height: 180px;"&gt;</code></li>
+                <li>Tire um screenshot desta página (1584x396px) ou use a ferramenta abaixo</li>
+                <li>Faça upload no LinkedIn como capa de perfil</li>
+            </ol>
+
+            <div class="note">
+                <strong>💡 Dica:</strong> Você pode usar ferramentas como:
+                <br>• <strong>Windows:</strong> Ferramenta de Captura (Win + Shift + S)
+                <br>• <strong>Browser:</strong> Extensão "Full Page Screen Capture"
+                <br>• <strong>Online:</strong> screely.com para adicionar moldura profissional
+                <br>• <strong>Photoshop/Figma:</strong> Para personalização avançada
+            </div>
+
+            <div class="note">
+                <strong>📐 Dimensões LinkedIn:</strong>
+                <br>• Largura: 1584 pixels
+                <br>• Altura: 396 pixels
+                <br>• Formato: JPG ou PNG
+                <br>• Tamanho máximo: 8MB
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Se você quiser adicionar o QR Code dinamicamente via JavaScript
+        // Descomente e use este código:
+        
+        /*
+        // Exemplo usando QRCode.js library
+        // Adicione antes do </body>: <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+        
+        const qrcodeContainer = document.getElementById("qrcode");
+        qrcodeContainer.innerHTML = ''; // Limpa o placeholder
+        
+        new QRCode(qrcodeContainer, {
+            text: "https://kleitonfr.github.io/portfolio", // Sua URL aqui
+            width: 180,
+            height: 180,
+            colorDark: "#0a0e27",
+            colorLight: "#ffffff",
+            correctLevel: QRCode.CorrectLevel.H
+        });
+        */
+    </script>
+
+    <!-- Descomente para usar QRCode.js -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script> -->
+</body>
+</html>

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Capa LinkedIn - Kleiton Ferreira</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        .control-panel {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .control-panel h2 {
+            margin-bottom: 20px;
+            color: #0a0e27;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #334155;
+        }
+
+        input[type="text"], input[type="url"] {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e2e8f0;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        input[type="text"]:focus, input[type="url"]:focus {
+            outline: none;
+            border-color: #00d4ff;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 15px;
+            margin-top: 25px;
+        }
+
+        button {
+            padding: 12px 30px;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #00d4ff 0%, #0099cc 100%);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 212, 255, 0.4);
+        }
+
+        .btn-secondary {
+            background: #e2e8f0;
+            color: #334155;
+        }
+
+        .btn-secondary:hover {
+            background: #cbd5e1;
+        }
+
+        .linkedin-cover {
+            width: 1584px;
+            height: 396px;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+        }
+
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 80px;
+        }
+
+        .text-content {
+            flex: 1;
+            color: white;
+        }
+
+        .name {
+            font-size: 64px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ffffff 0%, #00d4ff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .title {
+            font-size: 32px;
+            font-weight: 400;
+            color: #94a3b8;
+            margin-bottom: 25px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .skill-badge {
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        .call-to-action {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            color: #e2e8f0;
+            margin-top: 25px;
+        }
+
+        .arrow {
+            font-size: 28px;
+            color: #00d4ff;
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .qr-container {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border: 3px solid #00d4ff;
+            padding: 10px;
+        }
+
+        #qrcode {
+            width: 180px;
+            height: 180px;
+        }
+
+        #qrcode canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .qr-text {
+            text-align: center;
+            color: #0a0e27;
+        }
+
+        .qr-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .qr-subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .element-1 {
+            width: 300px;
+            height: 300px;
+            background: #00d4ff;
+            top: -150px;
+            left: -100px;
+        }
+
+        .element-2 {
+            width: 200px;
+            height: 200px;
+            background: #6366f1;
+            bottom: -100px;
+            right: 300px;
+        }
+
+        .element-3 {
+            width: 150px;
+            height: 150px;
+            background: #00d4ff;
+            top: 50px;
+            right: 600px;
+        }
+
+        .instructions {
+            margin-top: 30px;
+            padding: 25px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .instructions h3 {
+            color: #0a0e27;
+            margin-bottom: 15px;
+        }
+
+        .instructions ol {
+            color: #334155;
+            line-height: 2;
+            padding-left: 20px;
+        }
+
+        .note {
+            background: #dbeafe;
+            border-left: 4px solid #00d4ff;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .note strong {
+            color: #0369a1;
+        }
+
+        .alert {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 15px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 1600px) {
+            .linkedin-cover {
+                transform: scale(0.8);
+                transform-origin: top center;
+            }
+        }
+
+        @media (max-width: 1300px) {
+            .linkedin-cover {
+                transform: scale(0.6);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h2>🎨 Gerador de Capa LinkedIn com QR Code</h2>
+            
+            <div class="alert">
+                <strong>⚠️ Importante:</strong> Primeiro publique seu portfólio no GitHub Pages usando as instruções do arquivo DEPLOY.md
+            </div>
+
+            <div class="form-group">
+                <label for="nameInput">Seu Nome:</label>
+                <input type="text" id="nameInput" value="Kleiton Ferreira" placeholder="Seu nome completo">
+            </div>
+
+            <div class="form-group">
+                <label for="titleInput">Seu Título:</label>
+                <input type="text" id="titleInput" value="Full Stack Developer" placeholder="Ex: Full Stack Developer">
+            </div>
+
+            <div class="form-group">
+                <label for="urlInput">URL do seu Portfólio:</label>
+                <input type="url" id="urlInput" value="https://kleitonfr.github.io/portfolio" placeholder="https://seu-usuario.github.io/portfolio">
+            </div>
+
+            <div class="form-group">
+                <label for="urlShortInput">Texto curto da URL (para exibir):</label>
+                <input type="text" id="urlShortInput" value="github.io/portfolio" placeholder="Ex: github.io/portfolio">
+            </div>
+
+            <div class="button-group">
+                <button class="btn-primary" onclick="updateCover()">🔄 Atualizar Capa</button>
+                <button class="btn-secondary" onclick="downloadCover()">💾 Baixar Imagem</button>
+            </div>
+        </div>
+
+        <!-- LinkedIn Cover Preview -->
+        <div class="linkedin-cover" id="cover">
+            <div class="floating-element element-1"></div>
+            <div class="floating-element element-2"></div>
+            <div class="floating-element element-3"></div>
+            <div class="background-pattern"></div>
+            <div class="grid-overlay"></div>
+
+            <div class="content">
+                <div class="text-content">
+                    <h1 class="name" id="displayName">Kleiton Ferreira</h1>
+                    <p class="title" id="displayTitle">Full Stack Developer</p>
+                    
+                    <div class="skills">
+                        <span class="skill-badge">React</span>
+                        <span class="skill-badge">Node.js</span>
+                        <span class="skill-badge">Laravel</span>
+                        <span class="skill-badge">Python</span>
+                        <span class="skill-badge">TypeScript</span>
+                    </div>
+
+                    <div class="call-to-action">
+                        <span class="arrow">→</span>
+                        <span>Escaneie o QR Code para ver meu portfólio completo</span>
+                    </div>
+                </div>
+
+                <div class="qr-section">
+                    <div class="qr-container">
+                        <div id="qrcode"></div>
+                    </div>
+                    <div class="qr-text">
+                        <div class="qr-title">Meu Portfólio</div>
+                        <div class="qr-subtitle" id="displayUrl">github.io/portfolio</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructions -->
+        <div class="instructions">
+            <h3>📋 Como usar:</h3>
+            <ol>
+                <li>Preencha os campos acima com suas informações</li>
+                <li>Clique em "Atualizar Capa" para gerar o QR Code</li>
+                <li>Clique em "Baixar Imagem" para salvar a capa</li>
+                <li>Faça upload no LinkedIn (Perfil → Ícone de câmera na capa → Carregar foto)</li>
+            </ol>
+
+            <div class="note">
+                <strong>💡 Dica Alternativa:</strong> Se o download não funcionar bem, use:
+                <br>• <strong>Windows:</strong> Win + Shift + S para capturar a área da capa
+                <br>• <strong>Mac:</strong> Cmd + Shift + 4 para capturar
+                <br>• <strong>Extensões:</strong> "Full Page Screen Capture" ou "GoFullPage"
+            </div>
+
+            <div class="note">
+                <strong>📐 Especificações LinkedIn:</strong>
+                <br>• Dimensões: 1584 x 396 pixels (já configurado)
+                <br>• Formato: PNG ou JPG
+                <br>• Tamanho máximo: 8MB
+            </div>
+        </div>
+    </div>
+
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    
+    <!-- html2canvas for download -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        let qrcodeInstance = null;
+
+        // Gerar QR Code inicial
+        function generateQRCode(url) {
+            const qrcodeContainer = document.getElementById("qrcode");
+            qrcodeContainer.innerHTML = '';
+            
+            qrcodeInstance = new QRCode(qrcodeContainer, {
+                text: url,
+                width: 180,
+                height: 180,
+                colorDark: "#0a0e27",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        }
+
+        // Atualizar capa
+        function updateCover() {
+            const name = document.getElementById('nameInput').value;
+            const title = document.getElementById('titleInput').value;
+            const url = document.getElementById('urlInput').value;
+            const urlShort = document.getElementById('urlShortInput').value;
+
+            document.getElementById('displayName').textContent = name;
+            document.getElementById('displayTitle').textContent = title;
+            document.getElementById('displayUrl').textContent = urlShort;
+
+            generateQRCode(url);
+        }
+
+        // Baixar capa como imagem
+        async function downloadCover() {
+            const cover = document.getElementById('cover');
+            
+            try {
+                const canvas = await html2canvas(cover, {
+                    width: 1584,
+                    height: 396,
+                    scale: 2,
+                    backgroundColor: null,
+                    logging: false
+                });
+
+                // Converter para blob e baixar
+                canvas.toBlob(function(blob) {
+                    const url = URL.createObjectURL(blob);
+                    const link = document.createElement('a');
+                    link.download = 'linkedin-cover-kleiton-ferreira.png';
+                    link.href = url;
+                    link.click();
+                    URL.revokeObjectURL(url);
+                });
+
+                alert('✅ Imagem gerada! O download deve iniciar automaticamente.');
+            } catch (error) {
+                console.error('Erro ao gerar imagem:', error);
+                alert('❌ Erro ao gerar imagem. Use a captura de tela manual (Win + Shift + S)');
+            }
+        }
+
+        // Gerar QR Code inicial ao carregar a página
+        window.addEventListener('load', function() {
+            updateCover();
+        });
+    </script>
+</body>
+</html>
