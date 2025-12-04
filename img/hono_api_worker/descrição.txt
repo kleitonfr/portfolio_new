@@ -1,0 +1,251 @@
+# Trilhas Interativas 🌍
+
+O **Trilhas Interativas** é um ecossistema completo para exploração e gerenciamento de trilhas.  
+Ele é composto por três partes principais:
+
+- 📱 **App Mobile (front-end-expo)** → Aplicativo desenvolvido em **Expo + React Native**, voltado para usuários finais que desejam explorar trilhas e acompanhar estatísticas.
+- ⚙️ **Backend API (hono-api-worker)** → API construída em **TypeScript + Hono**, rodando em **Cloudflare Workers**, responsável por autenticação, dados e lógica de negócio.
+- 🖥️ **Dashboard Web (front-end-dashboard)** → Interface administrativa em **React + Vite**, usada para monitoramento, gerenciamento de usuários e trilhas.
+
+## 🚀 Tecnologias principais
+- **Mobile:** Expo, React Native, TypeScript, NativeWind, React Navigation
+- **Backend:** Hono, Cloudflare Workers, TypeScript
+- **Dashboard:** React, Vite, TypeScript, Tailwind CSS, Axios
+- **Ferramentas comuns:** ESLint, Prettier, GitHub Actions, Docker (quando aplicável)
+
+## 📂 Estrutura do ecossistema
+```
+trail-tracks/
+├── front-end-expo       # App mobile
+├── hono-api-worker      # Backend API
+└── front-end-dashboard  # Dashboard web
+```
+## ⚙️ Como rodar o projeto
+
+### 1. Clonar os repositórios
+
+git clone https://github.com/trail-tracks/front-end-expo.git
+git clone https://github.com/trail-tracks/hono-api-worker.git
+git clone https://github.com/trail-tracks/front-end-dashboard.git
+
+### 2. Instalar dependências
+Cada projeto possui suas próprias dependências.  
+Entre em cada pasta e rode:
+```
+- npm install
+```
+
+### 3. Executar os serviços
+- **App mobile:**
+```
+cd front-end-expo
+npx expo start
+```
+
+- **Backend:**
+```
+cd hono-api-worker
+npm run dev
+```
+
+- **Dashboard:**
+``` 
+cd front-end-dashboard
+npm run dev
+```
+
+## 🌐 Integração entre módulos
+- O **App mobile** consome os endpoints do **Backend** para autenticação e dados de trilhas.  
+- O **Dashboard web** também consome o **Backend**, mas com foco em administração e monitoramento.  
+- O **Backend** é o núcleo que conecta todos os módulos, garantindo consistência e segurança.
+
+---
+
+## Trilhas Interativas - Backend API ⚙️
+
+Este repositório contém o backend do ecossistema **Trail Tracks**, desenvolvido em **TypeScript** e baseado no framework [Hono](https://hono.dev).  
+O projeto roda como um **Cloudflare Worker**, oferecendo endpoints REST para autenticação, gerenciamento de trilhas e integração com o app mobile e o dashboard web.
+
+## 🚀 Tecnologias utilizadas
+- [TypeScript](https://www.typescriptlang.org/) – linguagem principal
+- [Hono](https://hono.dev) – framework minimalista para APIs em Cloudflare Workers
+- [Cloudflare Workers](https://developers.cloudflare.com/workers/) – ambiente de execução serverless
+- [npm](https://www.npmjs.com/) – gerenciamento de pacotes
+- [ESLint](https://eslint.org/) – padronização de código
+- [tsconfig](https://www.typescriptlang.org/docs/handbook/tsconfig-json.html) – configuração de compilação
+
+## 📂 Estrutura de pastas
+```
+/src          -> código fonte da API
+  /routes     -> definição das rotas/endpoints
+  /handlers   -> lógica de cada endpoint
+  /utils      -> funções auxiliares
+```
+
+## ⚙️ Instalação e execução
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/trail-tracks/hono-api-worker.git
+cd hono-api-worker
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Execute em modo desenvolvimento:
+```bash
+npm run dev
+```
+
+4. Acesse em:
+```
+http://localhost:3000
+```
+
+## 🧪 Scripts úteis
+- `npm run dev` → inicia servidor local
+- `npm run build` → compila TypeScript
+- `npm run lint` → verifica estilo e padrões de código
+
+## 🌐 Integração
+Este backend fornece APIs consumidas por:
+- **App mobile (front-end-expo)** → autenticação, dados de trilhas, estatísticas
+- **Dashboard web** → administração e monitoramento
+
+--- 
+
+## Trilhas Interativas - Mobile App 📱
+
+Aplicativo mobile desenvolvido com **Expo** e **React Native**, parte do ecossistema Trail Tracks (App, Backend e Dashboard Web).  
+Este projeto é responsável pela interface mobile, permitindo que usuários interajam com trilhas, mapas e funcionalidades integradas ao backend.
+
+## 🚀 Tecnologias utilizadas
+- [Expo](https://expo.dev) – framework para desenvolvimento mobile multiplataforma
+- [React Native](https://reactnative.dev) – base para construção da UI
+- [TypeScript](https://www.typescriptlang.org/) – tipagem estática
+- [NativeWind](https://www.nativewind.dev/) – integração do Tailwind CSS com React Native
+- [React Navigation](https://reactnavigation.org/) – navegação entre telas
+- [Expo Router](https://docs.expo.dev/router/introduction/) – roteamento baseado em arquivos
+- [EAS Build](https://docs.expo.dev/eas/) – automação de builds e deploy
+- [ESLint](https://eslint.org/) – padronização de código
+- [Metro Bundler](https://facebook.github.io/metro/) – empacotador padrão do React Native
+
+## 📂 Estrutura de pastas
+```
+/app          -> telas e rotas principais
+/assets       -> imagens, ícones e fontes
+/components   -> componentes reutilizáveis
+/constants    -> variáveis globais
+/db-mock      -> dados mockados para testes
+/hooks        -> hooks customizados
+/lib          -> funções utilitárias
+/types        -> tipagens globais
+```
+
+## ⚙️ Instalação e execução
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/trail-tracks/front-end-expo.git
+cd front-end-expo
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Inicie o app:
+```bash
+npx expo start
+```
+
+4. Abra no:
+- **Expo Go** (Android/iOS)
+- **Emulador Android** (Android Studio)
+- **Simulador iOS** (Xcode)
+
+## 🧪 Scripts úteis
+- `npm run reset-project` → limpa o projeto e recria a estrutura base
+- `npm run lint` → executa o ESLint
+- `npm run build` → gera build com EAS
+
+## 🌐 Integração
+Este app se conecta ao **backend Trail Tracks** para autenticação, dados de trilhas e estatísticas.  
+O **dashboard web** é usado para administração e monitoramento.
+
+---
+
+## Trilhas Interativas - Dashboard Web 🖥️
+
+Este repositório contém o **dashboard administrativo** do ecossistema Trilhas Interativas.  
+A aplicação é construída em **React + Vite** com **TypeScript**, oferecendo uma interface web moderna para monitoramento, gerenciamento de trilhas e usuários.
+
+## 🚀 Tecnologias utilizadas
+- [React](https://react.dev) – biblioteca para construção da UI
+- [Vite](https://vitejs.dev) – bundler e dev server rápido
+- [TypeScript](https://www.typescriptlang.org/) – tipagem estática
+- [Tailwind CSS](https://tailwindcss.com/) – estilização utilitária
+- [React Router](https://reactrouter.com/) – navegação entre páginas
+- [Axios](https://axios-http.com/) – consumo de APIs
+- [ESLint](https://eslint.org/) – padronização de código
+- [Prettier](https://prettier.io/) – formatação automática
+
+## 📂 Estrutura de pastas
+```
+/src
+  /components   -> componentes reutilizáveis
+  /pages        -> páginas principais do dashboard
+  /routes       -> configuração de rotas
+  /services     -> integração com APIs (axios)
+  /styles       -> estilos globais
+  /types        -> tipagens globais
+```
+
+## ⚙️ Instalação e execução
+
+1. Clone o repositório:
+```bash
+git clone https://github.com/trail-tracks/front-end-dashboard.git
+cd front-end-dashboard
+```
+
+2. Instale as dependências:
+```bash
+npm install
+```
+
+3. Execute em modo desenvolvimento:
+```bash
+npm run dev
+```
+
+4. Acesse em:
+```
+http://localhost:5173
+```
+
+## 🧪 Scripts úteis
+- `npm run dev` → inicia servidor local
+- `npm run build` → gera versão de produção
+- `npm run lint` → verifica estilo e padrões de código
+- `npm run preview` → pré-visualiza build localmente
+
+## 🌐 Integração
+O dashboard consome dados do **backend (hono-api-worker)** e apresenta métricas e ferramentas administrativas para:
+- Gerenciar usuários
+- Monitorar trilhas
+- Visualizar estatísticas
+
+---
+
+Sources: 
+
+### Account:
+- Email: interativa.trilha@gmail.com
+- Password: ifsp2025!
+
+- link figma: https://www.figma.com/design/mHkYrsQzjRDrgBTSpW5zCv/Trilhas-Interativas?node-id=1-8239&t=Anwff2wHSdqAoCzr-1

@@ -1,0 +1,21 @@
+Durante as últimas semanas, desenvolvemos funcionalidades para redefinição de senha, cadastro de usuário e registro de preferências, conforme descrição abaixo:
+
+- Cadastro de usuário: na tela inicial do aplicativo, ao selecionar a opção "Criar conta", o usuário será redirecionado à tela de cadastro. Nessa tela, é necessário preencher o formulário, dividido em três etapas, com as informações solicitadas, que serão enviadas ao back-end da aplicação e salvas no banco de dados, registrando o usuário no sistema;
+
+- Redefinição de senha: na tela de login, caso o usuário tenha esquecido sua senha de acesso, é possível que a mesma seja redefinida, ao pressionar a opção "Esqueci minha senha". A partir daí, o usuário recebe um código em seu e-mail e é redirecionado à tela para inserção do código, caso o valor digitado esteja de acordo com aquele enviado ao e-mail, o usuário poderá criar uma nova senha, que será criptografada e salva no banco de dados. Caso o valor informado para o código seja inválido, o usuário receberá uma mensagem de erro na tela e poderá tentar novamente;
+
+- Registro de preferências: após realizar o login, caso seja constatado pelo sistema que é o primeiro acesso do usuário, ele deverá preencher suas preferências, de modo que o aplicativo possa realizar sugestões futuras. Assim, são exibidas características relacionadas aos pets e o usuário deve selecionar uma ou mais, de acordo com suas preferências.
+
+Tecnologias
+PostgreSQL
+Zod
+Prisma
+TypeScript
+Express
+React Native
+Expo
+
+Planejamento e definição dos requisitos: Alef Thallys
+Banco de dados: Kleiton Ferreira
+Design e front-end: Maria Eduarda de Faria
+Back-end: Tulio Koogi e Kleiton Ferreira

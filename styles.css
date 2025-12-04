@@ -723,3 +723,7 @@ footer {
 .bg-dark {
     background: var(--dark-bg) !important;
 }
+
+.text-justify {
+    text-align: justify !important;
+}
