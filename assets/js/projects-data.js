@@ -30,9 +30,9 @@ const projectsData = {
         `,
         technologies: ['HTML5', 'CSS3', 'JavaScript', 'Bootstrap 5.3', 'Bootstrap Icons', 'VLibras'],
         images: [
-            '../assets/img/diario_oficial/image.png',
-            '../assets/img/diario_oficial/image2.png',
-            '../assets/img/diario_oficial/image3.png'
+            'assets/img/diario_oficial/image.png',
+            'assets/img/diario_oficial/image2.png',
+            'assets/img/diario_oficial/image3.png'
         ],
         links: [
             { name: 'GitHub', url: 'https://github.com/kleitonfr/front_diario-oficial', icon: 'bi-github' },
@@ -83,11 +83,11 @@ const projectsData = {
         `,
         technologies: ['PHP', 'Laravel 10+', 'MySQL', 'Bootstrap 4', 'jQuery', 'AdminLTE'],
         images: [
-            '../assets/img/consulta_publica/image.png',
-            '../assets/img/consulta_publica/image2.png',
-            '../assets/img/consulta_publica/image3.png',
-            '../assets/img/consulta_publica/image4.png',
-            '../assets/img/consulta_publica/image5.png'
+            'assets/img/consulta_publica/image.png',
+            'assets/img/consulta_publica/image2.png',
+            'assets/img/consulta_publica/image3.png',
+            'assets/img/consulta_publica/image4.png',
+            'assets/img/consulta_publica/image5.png'
         ],
         links: [
             { name: 'Projeto Privado', url: '#', icon: 'bi-lock-fill', disabled: true }
@@ -144,14 +144,14 @@ const projectsData = {
         `,
         technologies: ['PHP', 'Laravel 10+', 'MySQL', 'Bootstrap 4', 'jQuery', 'AdminLTE'],
         images: [
-            '../assets/img/sistema_lgpd/login.png',
-            '../assets/img/sistema_lgpd/cadastro.png',
-            '../assets/img/sistema_lgpd/formulario.png',
-            '../assets/img/sistema_lgpd/lista.png',
-            '../assets/img/sistema_lgpd/detalhe-registro.png',
-            '../assets/img/sistema_lgpd/lista-usuario.png',
-            '../assets/img/sistema_lgpd/novo-usuario.png',
-            '../assets/img/sistema_lgpd/deletar-usuario.png'
+            'assets/img/sistema_lgpd/login.png',
+            'assets/img/sistema_lgpd/cadastro.png',
+            'assets/img/sistema_lgpd/formulario.png',
+            'assets/img/sistema_lgpd/lista.png',
+            'assets/img/sistema_lgpd/detalhe-registro.png',
+            'assets/img/sistema_lgpd/lista-usuario.png',
+            'assets/img/sistema_lgpd/novo-usuario.png',
+            'assets/img/sistema_lgpd/deletar-usuario.png'
         ],
         links: [
             { name: 'Projeto Privado', url: '#', icon: 'bi-lock-fill', disabled: true }
@@ -187,7 +187,7 @@ const projectsData = {
 
             <div class="project-detail-card mt-4 text-center">
                 <h3 class="mb-4">🎓 Entrega do Projeto</h3>
-                <img src="../assets/img/nest_florestal/WhatsApp Image 2025-12-03 at 10.30.38.jpeg" 
+                <img src="assets/img/nest_florestal/WhatsApp Image 2025-12-03 at 10.30.38.jpeg" 
                      alt="Turma entregando o projeto ao Parque Serramar" 
                      class="img-fluid rounded shadow-lg"
                      style="max-width: 800px; width: 100%;">
@@ -205,12 +205,12 @@ const projectsData = {
         `,
         technologies: ['NestJS', 'TypeScript', 'Prisma', 'PostgreSQL', 'React Native', 'Expo'],
         images: [
-            '../assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.35.jpeg',
-            '../assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.36.jpeg',
-            '../assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.37.jpeg',
-            '../assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.40.jpeg',
-            '../assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.41.jpeg',
-            '../assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.42.jpeg'
+            'assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.35.jpeg',
+            'assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.36.jpeg',
+            'assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.37.jpeg',
+            'assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.40.jpeg',
+            'assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.41.jpeg',
+            'assets/img/nest_florestal/WhatsApp Image 2025-12-02 at 09.09.42.jpeg'
         ],
         links: [
             { name: 'Projeto Privado', url: '#', icon: 'bi-lock-fill', disabled: true }
