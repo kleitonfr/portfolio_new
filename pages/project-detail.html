@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Detalhes do Projeto - Kleiton Ferreira">
+    <title>Detalhes do Projeto</title>
+    
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+    .project-detail-header {
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 100%);
+    padding: 4rem 0;
+    border-bottom: 3px solid #00d4ff;
+    color: #e2e8f0;
+}
+
+.project-image-container {
+    margin: 2rem 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+}
+
+.project-image-container img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.project-detail-content {
+    padding: 3rem 0;
+    background: linear-gradient(135deg, #0a0e27 0%, #0f1428 100%);
+    min-height: calc(100vh - 200px);
+}
+
+.tech-section {
+    background: #1a1f3a;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    margin: 2rem 0;
+}
+
+.back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: #00d4ff;
+    text-decoration: none;
+    font-weight: 600;
+    margin-bottom: 2rem;
+    transition: all 0.3s ease;
+}
+
+.back-button:hover {
+    color: #00b8e6;
+    transform: translateX(-5px);
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin: 2rem 0;
+}
+
+.project-detail-card {
+    background: #1a1f3a;
+    padding: 2rem;
+    border-radius: 15px;
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    margin-bottom: 2rem;
+    color: #e2e8f0;
+}
+
+.project-detail-card h2, .project-detail-card h3, .project-detail-card h4 {
+    color: #00d4ff;
+}
+
+.project-detail-card ul li {
+    color: #e2e8f0;
+    margin-bottom: 0.5rem;
+}
+
+.embed-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 2rem 0;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.embed-container iframe {
+    border-radius: 15px;
+}
+
+.footer {
+    background: #0a0e27;
+    border-top: 1px solid rgba(0, 212, 255, 0.2);
+}
+
+.btn-outline-primary {
+    color: #00d4ff;
+    border-color: #00d4ff;
+}
+
+.btn-outline-primary:hover {
+    background-color: #00d4ff;
+    color: #000;
+}
+
+/* Estilos para carrosséis compactos (Nest Florestal) */
+.carousel-compact .carousel-inner {
+    max-height: 500px;
+    display: flex;
+    align-items: center;
+}
+
+.carousel-compact .carousel-item {
+    height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Ajustes para embeds responsivos */
+.embed-container {
+    position: relative;
+    width: 100%;
+    max-width: 850px;
+    margin: 2rem auto;
+}
+
+.embed-container iframe {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    min-height: 400px;
+}
+
+/* Estilos para imagens dentro de descrição */
+.project-detail-card img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 10px;
+}
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+    .carousel-compact .carousel-item,
+    .carousel-compact .carousel-inner {
+        max-height: 350px;
+        height: 350px;
+    }
+    
+    .embed-container iframe {
+        min-height: 300px;
+    }
+}
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">
+                <span class="brand-name">Kleiton</span><span class="brand-highlight">Dev</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Início</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">Projetos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Project Detail Container -->
+    <div class="project-detail-header" style="margin-top: 80px;">
+        <div class="container pt-5">
+            <a href="index.html#projects" class="back-button">
+                <i class="bi bi-arrow-left"></i> Voltar aos Projetos
+            </a>
+            <h1 id="projectTitle" class="display-4 fw-bold mb-3"></h1>
+            <p id="projectBrief" class="lead" style="color: #94a3b8;"></p>
+        </div>
+    </div>
+
+    <div class="container project-detail-content">
+        <!-- Embed Content PRIMEIRO (para PetMatch vídeo e Hono API figma) -->
+        <div id="embedContent"></div>
+
+        <!-- Project Image -->
+        <div class="project-image-container" id="imageContainer">
+            <!-- Imagem será inserida dinamicamente -->
+        </div>
+
+        <!-- Project Description -->
+        <div class="row mt-5">
+            <div class="col-lg-8">
+                <div class="project-detail-card">
+                    <h2 class="mb-4">Sobre o Projeto</h2>
+                    <p id="projectDescription"></p>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div class="col-lg-4">
+                <!-- Tech Stack -->
+                <div class="tech-section">
+                    <h3 class="mb-3"><i class="bi bi-code-slash"></i> Tecnologias</h3>
+                    <div id="techStack"></div>
+                </div>
+
+                <!-- Links -->
+                <div class="tech-section">
+                    <h3 class="mb-3"><i class="bi bi-link-45deg"></i> Links</h3>
+                    <div id="projectLinks"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Additional Info -->
+        <div id="additionalContent"></div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-4">
+        <div class="container text-center">
+            <p style="color: #e2e8f0;">&copy; 2025 Kleiton Ferreira. Todos os direitos reservados.</p>
+            <p class="text-muted small">Desenvolvido com <i class="bi bi-heart-fill text-primary"></i> em São Paulo</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap Bundle JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Projects Data -->
+    <script src="../assets/js/projects-data.js"></script>
+    <!-- Custom JS -->
+    <script src="../assets/js/project-details.js"></script>
+</body>
+</html>
