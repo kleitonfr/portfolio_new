@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Preview Capa LinkedIn - Kleiton Ferreira</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f0f0f0;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            color: #0a0e27;
+        }
+
+        .linkedin-preview {
+            position: relative;
+            width: 1584px;
+            margin: 0 auto;
+        }
+
+        .linkedin-cover {
+            width: 1584px;
+            height: 396px;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0a0e27 100%);
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .background-pattern {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(99, 102, 241, 0.1) 0%, transparent 50%);
+        }
+
+        .grid-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 80px 0 350px;
+        }
+
+        .text-content {
+            flex: 1;
+            color: white;
+            padding-top: 20px;
+        }
+
+        .name {
+            font-size: 58px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0, 212, 255, 0.3);
+            line-height: 1.1;
+        }
+
+        .title {
+            font-size: 28px;
+            font-weight: 400;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 20px;
+        }
+
+        .skill-badge {
+            background: rgba(0, 212, 255, 0.15);
+            border: 1px solid rgba(0, 212, 255, 0.4);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 16px;
+            color: #00d4ff;
+            font-weight: 500;
+        }
+
+        .call-to-action {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 20px;
+            color: #e2e8f0;
+            margin-top: 25px;
+        }
+
+        .arrow {
+            font-size: 28px;
+            color: #00d4ff;
+        }
+
+        .qr-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.3);
+        }
+
+        .qr-container {
+            width: 200px;
+            height: 200px;
+            background: white;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border: 3px solid #00d4ff;
+            padding: 10px;
+        }
+
+        #qrcode {
+            width: 180px;
+            height: 180px;
+        }
+
+        #qrcode canvas {
+            width: 100% !important;
+            height: 100% !important;
+        }
+
+        .qr-text {
+            text-align: center;
+            color: #0a0e27;
+        }
+
+        .qr-title {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+
+        .qr-subtitle {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.1;
+        }
+
+        .element-1 {
+            width: 300px;
+            height: 300px;
+            background: #00d4ff;
+            top: -150px;
+            left: -100px;
+        }
+
+        .element-2 {
+            width: 200px;
+            height: 200px;
+            background: #6366f1;
+            bottom: -100px;
+            right: 300px;
+        }
+
+        .element-3 {
+            width: 150px;
+            height: 150px;
+            background: #00d4ff;
+            top: 50px;
+            right: 600px;
+        }
+
+        /* Overlay da foto de perfil do LinkedIn */
+        .profile-photo-overlay {
+            position: absolute;
+            bottom: -60px;
+            left: 80px;
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            background: rgba(255, 0, 0, 0.3);
+            border: 4px solid #ff0000;
+            z-index: 100;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            text-align: center;
+            padding: 10px;
+            font-size: 14px;
+        }
+
+        .warning-box {
+            background: #fef3c7;
+            border-left: 4px solid #f59e0b;
+            padding: 20px;
+            margin: 30px auto;
+            max-width: 1584px;
+            border-radius: 8px;
+        }
+
+        .info-box {
+            background: #dbeafe;
+            border-left: 4px solid #00d4ff;
+            padding: 20px;
+            margin: 20px auto;
+            max-width: 1584px;
+            border-radius: 8px;
+        }
+
+        @media (max-width: 1600px) {
+            .linkedin-preview {
+                transform: scale(0.8);
+                transform-origin: top center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>📸 Preview: Como ficará no LinkedIn</h2>
+
+        <div class="warning-box">
+            <strong>⚠️ Área Vermelha:</strong> Representa onde sua foto de perfil do LinkedIn irá aparecer. Certifique-se de que nenhum texto importante fique nessa área!
+        </div>
+
+        <div class="linkedin-preview">
+            <!-- Overlay da foto de perfil -->
+            <div class="profile-photo-overlay">
+                Área da sua foto no LinkedIn
+            </div>
+
+            <div class="linkedin-cover">
+                <div class="floating-element element-1"></div>
+                <div class="floating-element element-2"></div>
+                <div class="floating-element element-3"></div>
+                <div class="background-pattern"></div>
+                <div class="grid-overlay"></div>
+
+                <div class="content">
+                    <div class="text-content">
+                        <h1 class="name">Kleiton Ferreira</h1>
+                        <p class="title">Backend Engineer</p>
+                        
+                        <div class="skills">
+                            <span class="skill-badge">Python</span>
+                            <span class="skill-badge">TypeScript</span>
+                        </div>
+
+                        <div class="call-to-action">
+                            <span class="arrow">→</span>
+                            <span>Escaneie o QR Code para ver meu portfólio completo</span>
+                        </div>
+                    </div>
+
+                    <div class="qr-section">
+                        <div class="qr-container">
+                            <div id="qrcode"></div>
+                        </div>
+                        <div class="qr-text">
+                            <div class="qr-title">Meu Portfólio</div>
+                            <div class="qr-subtitle">github.io/portfolio_new</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="info-box">
+            <strong>✅ Agora o texto está seguro!</strong> O nome "Kleiton Ferreira" e todo o conteúdo foram ajustados para não ficarem atrás da foto de perfil do LinkedIn.
+            <br><br>
+            <strong>📝 Ajustes feitos:</strong>
+            <ul style="margin-top: 10px; margin-left: 20px;">
+                <li>Padding esquerdo aumentado de 80px para 350px</li>
+                <li>Fonte do nome ajustada para 58px (antes 64px)</li>
+                <li>Espaçamentos otimizados</li>
+                <li>Conteúdo posicionado com padding-top</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- QRCode.js Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+
+    <script>
+        // Gerar QR Code
+        window.addEventListener('load', function() {
+            new QRCode(document.getElementById("qrcode"), {
+                text: "https://kleitonfr.github.io/portfolio_new",
+                width: 180,
+                height: 180,
+                colorDark: "#0a0e27",
+                colorLight: "#ffffff",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+        });
+    </script>
+</body>
+</html>

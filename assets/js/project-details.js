@@ -71,11 +71,24 @@ function loadProjectImages(images, projectId) {
                 aria-label="Slide ${index + 1}"></button>`
     ).join('');
 
-    const slides = images.map((img, index) => `
+    const slides = images.map((img, index) => {
+        // Define altura máxima baseada no tipo de projeto e dispositivo
+        const isMobile = window.innerWidth <= 768;
+        let maxHeight = projectId === 'nest-florestal' ? '500px' : '600px';
+        
+        if (isMobile) {
+            maxHeight = '400px';
+        }
+        
+        return `
         <div class="carousel-item ${index === 0 ? 'active' : ''}">
-            <img src="${img}" class="d-block mx-auto" alt="Screenshot ${index + 1}" style="max-height: ${projectId === 'nest-florestal' ? '500px' : '600px'}; width: auto; object-fit: contain;">
+            <img src="${img}" 
+                 class="d-block mx-auto" 
+                 alt="Screenshot ${index + 1}" 
+                 style="max-height: ${maxHeight}; width: 100%; max-width: 100%; object-fit: contain;">
         </div>
-    `).join('');
+    `;
+    }).join('');
 
     imageContainer.innerHTML = `
         <div id="${carouselId}" class="carousel slide ${carouselClass}" data-bs-ride="carousel">

@@ -150,6 +150,62 @@
         .embed-container iframe {
             min-height: 300px;
         }
+
+        .project-detail-header {
+            padding: 2rem 0;
+        }
+
+        .project-detail-content {
+            padding: 1.5rem 0;
+        }
+
+        /* Ajustes do carrossel para mobile */
+        .carousel-item img {
+            max-height: 400px !important;
+            width: 100% !important;
+            object-fit: contain !important;
+            padding: 0 10px;
+        }
+
+        .project-image-container {
+            margin: 1rem 0;
+            border-radius: 10px;
+        }
+
+        /* Controles do carrossel maiores no mobile */
+        .carousel-control-prev-icon,
+        .carousel-control-next-icon {
+            width: 30px;
+            height: 30px;
+        }
+
+        /* Indicadores maiores no mobile */
+        .carousel-indicators [data-bs-target] {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+        }
+    }
+
+    /* Para telas muito pequenas */
+    @media (max-width: 576px) {
+        .carousel-item img {
+            max-height: 300px !important;
+            padding: 0 5px;
+        }
+
+        .project-detail-header {
+            padding: 1.5rem 0;
+        }
+
+        .project-detail-header h1 {
+            font-size: 1.75rem !important;
+        }
+
+        .tech-section {
+            padding: 1.5rem;
+            margin: 1rem 0;
+        }
     }
     </style>
 </head>
